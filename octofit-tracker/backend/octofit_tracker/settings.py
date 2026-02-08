@@ -26,8 +26,15 @@ SECRET_KEY = 'django-insecure-s!-yiae(6ig3d-lg0r$f-=l4jq#j5@=l395b$j3j5g_ydh)i&a
 DEBUG = True
 
 
-# Allow all hosts
-ALLOWED_HOSTS = ['*']
+
+# Allow codespace and localhost hosts
+import os
+CODESPACE_NAME = os.environ.get('CODESPACE_NAME', 'localhost')
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    f'{CODESPACE_NAME}-8000.app.github.dev',
+]
 
 
 # Application definition
@@ -81,8 +88,14 @@ CORS_ALLOW_HEADERS = ['*']
 CORS_ALLOW_METHODS = ['DELETE', 'GET', 'OPTIONS', 'PATCH', 'POST', 'PUT']
 CORS_ORIGIN_ALLOW_ALL = True
 
-# Allow all hosts
-ALLOWED_HOSTS = ['*']
+# Allow codespace and localhost hosts
+import os
+CODESPACE_NAME = os.environ.get('CODESPACE_NAME', 'localhost')
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    f'{CODESPACE_NAME}-8000.app.github.dev',
+]
 
 ROOT_URLCONF = 'octofit_tracker.urls'
 
